@@ -1,1 +1,1 @@
-# godoinedteam.github.io
+# https://godoined.github.io/godoinedteam/
