@@ -3,22 +3,53 @@
 <head>
 <meta charset="UTF-8">
 <title>Home</title>
-<link rel="stylesheet" href="./style.css">  
+<link rel="stylesheet" href="./style.css"> 
+<link rel="stylesheet" href="./bg.css"> 
+<div class="bg"></div>
 <style>
-body {
-    -webkit-animation: colorchange 10s infinite; 
-    animation: colorchange 20s infinite;
+body{
+-webkit-animation: colorchange 10s infinite; 
+animation: colorchange 20s infinite;
+margin: 0;
+overflow-x: hidden;
+}
+@keyframes tilt-shaking1 {
+  0% { transform: rotate(0deg);}
+  25% { transform: rotate(0.5deg);}
+  50% { transform: rotate(0deg);}
+  75% { transform: rotate(-0.5deg);}
+  100% { transform: rotate(0deg);}
+}
+@keyframes tilt-shaking2 {
+  0% { transform: rotate(0deg);}
+  25% { transform: rotate(1deg);}
+  50% { transform: rotate(0deg);}
+  75% { transform: rotate(-1deg);}
+  100% { transform: rotate(0deg);}
 }
 @-webkit-keyframes colorchange {
-    0%  {background: #585858;}
-    50%  {background: #242424;}
-    100%  {background: #585858;}
+  0%  {background: #585858;}
+  50%  {background: #242424;}
+  100%  {background: #585858;}
 }
 @keyframes colorchange {
-    0%  {background: #585858;}
-    50%  {background: #242424;}
-    100%  {background: #585858;}
-}   
+  0%  {background: #585858;}
+  50%  {background: #242424;}
+  100%  {background: #585858;}
+}
+@keyframes bg-animation {
+    0% { transform: translate(0,0) }
+    10% { transform: translate(-5%,-5%) }
+    20% { transform: translate(-10%,5%) }
+    30% { transform: translate(5%,-10%) }
+    40% { transform: translate(-5%,15%) }
+    50% { transform: translate(-10%,5%) }
+    60% { transform: translate(15%,0) }
+    70% { transform: translate(0,10%) }
+    80% { transform: translate(-15%,0) }
+    90% { transform: translate(10%,5%) }
+    100% { transform: translate(5%,0) }
+}
 </style>
 <center>
 <div class="container">
@@ -29,7 +60,6 @@ body {
         <span style="--index: 2;">GODOINED</span>
     </div>
 </div>
-<script  src="./script.js"></script>
 </center>
 </p>
 </head>
@@ -38,6 +68,18 @@ body {
 <top>
 <center>
 <style>
+/*.iconwait{
+  background-image: url(https://github.com/GODOINED/godoinedteam/blob/main/waiting.gif?raw=true);
+  width: 50px;
+  height: 50px;
+  border: 3px solid transparent;
+  position: absolute;
+  transform: rotate(45deg);
+  right: 0;
+  top: 0;
+  z-index: -1;
+  transition: all .35s;
+}*/
 a.button8 {
     display: inline-block;
     color: white;
@@ -50,9 +92,12 @@ a.button8 {
     border: 2px solid;
     border-radius: 2px;
     transition: 1s;
+    transition: 1s;
+    text-shadow: 0px 0px 4px #ccc;
+    box-shadow: 0 0 10px #fff, 0 0 
   } 
-  a.button8:hover { background: rgba(255, 255, 255, 0.5); color:rgb(255, 255, 255); font-size: 20px;}
-  a.button8:active { background: white; color:rgb(105, 105, 105);}
+  a.button8:hover { background: rgba(255, 255, 255, 0.5); color:rgb(255, 255, 255); font-size: 20px; text-shadow: 0px 0px 8px rgb(255, 255, 255); box-shadow: 0 0 20px #fff, 0 0;}
+  a.button8:active { background: white; color:rgb(105, 105, 105); text-shadow: 0px 0px 3px rgb(255, 255, 255); box-shadow: 0 0 1px #fff, 0 0;}
   a.button9 {
     display: inline-block;
     color: white;
@@ -65,9 +110,11 @@ a.button8 {
     border: 2px solid;
     border-radius: 2px;
     transition: 1s;
-  } 
-  a.button9:hover { background: rgba(255, 0, 0, 0.2); color:rgb(255, 33, 33); font-size: 20px;}
-  a.button9:active { background: rgb(255, 33, 33); color:rgb(255, 119, 119);}
+    text-shadow: 0px 0px 4px #ccc;
+    box-shadow: 0 0 10px #fff, 0 0 
+  }
+  a.button9:hover { background: rgba(255, 0, 0, 0.2); color:rgb(255, 33, 33); font-size: 20px; animation: tilt-shaking1 0.15s infinite; box-shadow: 0 0 20px rgb(255, 0, 0), 0 0; text-shadow: 0px 0px 15px rgb(192, 0, 0);}
+  a.button9:active { background: rgb(255, 33, 33); color:rgb(255, 119, 119); animation: tilt-shaking2 0.15s infinite;box-shadow: 0 0 50px rgb(255, 93, 93), 0 0;text-shadow: 0px 0px 35px rgb(255, 233, 233);}
 </style>
 <div style="padding: 1.5em 2px;"><a href="https://cdn-files.gamejolt.net/A96m2B-Fn6DoC3AhHZpF-g==,1667915728/data/games/10/190/645190/files/635391e98817d/slendytubbies-funkin.exe" class="button8">Download | Slendytubbies funkin</a><br></div>
 <div style="padding: 1.5em 2px;"><a class="button9">Coming soon | Funkin in the woods</a><br></div>
