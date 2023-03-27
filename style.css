@@ -1,87 +1,272 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-:root {
-  --background: #060608;
-  --color: #FAFAFA;
-}
-
-html, body {
-  width: 100%;
-  height: 100%;
-  font-family: Arial;
-}
-
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: var(--background);
+	margin: 0;
+	padding: 0;
+	background-color: black;
 }
 
-.container {
-  color: var(--color);
-  font-size: 1.5rem;
-  display: flex;
-  flex-direction: column;
+.background {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(45deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url("photo.jpg");
+	background-size: cover;
+	animation: background-animation 50s infinite;
+	filter:blur(5px)
 }
 
-.right {
-  text-align: right;
-  width: 100%;
+@keyframes background-animation {
+	0% {
+		background-image: url("photo.jpg");
+	}
+
+	25% {
+		background-image: url("photo2.jpg");
+	}
+
+	50% {
+		background-image: url("photo3.jpg");
+	}
+	75% {
+		background-image: url("photo4.jpg");
+	}
+
+	100% {
+		background-image: url("photo5.jpg");
+	}
 }
 
-.stack {
-  display: grid;
-  grid-template-columns: 1fr;
+.button {
+	border: none;
+	background-color: #333;
+	color: #fff;
+	padding: 10px 20px;
+	font-size: 18px;
+	border-radius: 5px;
+	cursor: pointer;
 }
 
-.stack span {
-  font-weight: bold;
-  grid-row-start: 1;
-  grid-column-start: 1;
-  font-size: 4rem;
-  --stack-height: calc(100% / var(--stacks) - 1px);
-  --inverse-index: calc(calc(var(--stacks) - 1) - var(--index));
-  --clip-top: calc(var(--stack-height) * var(--index));
-  --clip-bottom: calc(var(--stack-height) * var(--inverse-index));
-  clip-path: inset(var(--clip-top) 0 var(--clip-bottom) 0);
-  animation: stack 340ms cubic-bezier(.46,.29,0,1.24) 1 backwards calc(var(--index) * 120ms), glitch 2s ease infinite 2s alternate-reverse;
+.button:hover {
+	background-color: #ff5555;
+	box-shadow: 0px 5px 10px rgba(255,0,0,0.5);
+	transition: background-color 0.5s, box-shadow 0.5s;
 }
 
-.stack span:nth-child(odd) { --glitch-translate: 8px; }
-.stack span:nth-child(even) { --glitch-translate: -8px; }
+.info {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+}
 
-@keyframes stack {
-  0% {
-    opacity: 0;
-    transform: translateX(-50%);
-    text-shadow: -2px 3px 0 red, 2px -3px 0 blue;
-  };
-  60% {
-    opacity: 0.5;
-    transform: translateX(50%);
+.download {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.download:hover {
+	background-color: #ff5555;
+	border-radius: 5px;
+	box-shadow: 0px 5px 10px rgba(255,0,0,0.5);
+	transition: background-color 0.5s, box-shadow 0.5s;
+}
+@font-face {
+	font-family: Clip;
+	src: url("https://acupoftee.github.io/fonts/Clip.ttf");
   }
-  80% {
-    transform: none;
-    opacity: 1;
-    text-shadow: 2px -3px 0 red, -2px 3px 0 blue;
+.sign {
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 50%;
+	height: 50%;
+	background-image: radial-gradient(
+	  ellipse 50% 35% at 50% 50%,
+	  #474747,
+	  transparent
+	);
+	transform: translate(-50%, -50%);
+	letter-spacing: 2;
+	left: 50%;
+	top: 50%;
+	font-family: "Clip";
+	text-transform: uppercase;
+	font-size: 6em;
+	color: #ffffff;
+	text-shadow: 0 0 0.6rem #ffffff, 0 0 1.5rem #ffffff,
+	  -0.2rem 0.1rem 1rem #acacac, 0.2rem 0.1rem 1rem #ffffff,
+	  0 -0.5rem 2rem #3f3f3f, 0 0.5rem 3rem #6e6e6e;
+	animation: shine 2s forwards, flicker 3s infinite;
   }
-  100% {
-    text-shadow: none;
+  
+  @keyframes blink {
+	0%,
+	22%,
+	36%,
+	75% {
+		color: #ffe6ff;
+		text-shadow: 0 0 0.6rem #ffe6ff, 0 0 1.5rem #b9b9b9,
+		  -0.2rem 0.1rem 1rem #d6d6d6, 0.2rem 0.1rem 1rem #b3b3b3,
+		  0 -0.5rem 2rem #636363, 0 0.5rem 3rem #7a7a7a;
+	}
+	28%,
+	33% {
+	  color: #ffffff;
+	  text-shadow: none;
+	}
+	82%,
+	97% {
+	  color: #727272;
+	  text-shadow: none;
+	}
   }
-}
-
-@keyframes glitch {
-  0% {
-    text-shadow: -2px 3px 0 red, 2px -3px 0 blue;
-    transform: translate(var(--glitch-translate));
+  
+  .flicker {
+	animation: shine 2s forwards, blink 3s 2s infinite;
   }
-  2% {
-    text-shadow: 2px -3px 0 red, -2px 3px 0 blue;
+  
+  .fast-flicker {
+	animation: shine 2s forwards, blink 10s 1s infinite;
   }
-  4%, 100% {  text-shadow: none; transform: none; }
+  
+  @keyframes shine {
+	0% {
+	  color: #414141;
+	  text-shadow: none;
+	}
+	100% {
+	  color: #ffe6ff;
+	  text-shadow: 0 0 0.6rem #ffe6ff, 0 0 1.5rem #b9b9b9,
+		-0.2rem 0.1rem 1rem #d6d6d6, 0.2rem 0.1rem 1rem #b3b3b3,
+		0 -0.5rem 2rem #636363, 0 0.5rem 3rem #7a7a7a;
+	}
+  }
+  
+  @keyframes flicker {
+	from {
+	  opacity: 1;
+	}
+  
+	4% {
+	  opacity: 0.9;
+	}
+  
+	6% {
+	  opacity: 0.85;
+	}
+  
+	8% {
+	  opacity: 0.95;
+	}
+  
+	10% {
+	  opacity: 0.9;
+	}
+  
+	11% {
+	  opacity: 0.922;
+	}
+  
+	12% {
+	  opacity: 0.9;
+	}
+  
+	14% {
+	  opacity: 0.95;
+	}
+  
+	16% {
+	  opacity: 0.98;
+	}
+  
+	17% {
+	  opacity: 0.9;
+	}
+  
+	19% {
+	  opacity: 0.93;
+	}
+  
+	20% {
+	  opacity: 0.99;
+	}
+  
+	24% {
+	  opacity: 1;
+	}
+  
+	26% {
+	  opacity: 0.94;
+	}
+  
+	28% {
+	  opacity: 0.98;
+	}
+  
+	37% {
+	  opacity: 0.93;
+	}
+  
+	38% {
+	  opacity: 0.5;
+	}
+  
+	39% {
+	  opacity: 0.96;
+	}
+  
+	42% {
+	  opacity: 1;
+	}
+  
+	44% {
+	  opacity: 0.97;
+	}
+  
+	46% {
+	  opacity: 0.94;
+	}
+  
+	56% {
+	  opacity: 0.9;
+	}
+  
+	58% {
+	  opacity: 0.9;
+	}
+  
+	60% {
+	  opacity: 0.99;
+	}
+  
+	68% {
+	  opacity: 1;
+	}
+  
+	70% {
+	  opacity: 0.9;
+	}
+  
+	72% {
+	  opacity: 0.95;
+	}
+  
+	93% {
+	  opacity: 0.93;
+	}
+  
+	95% {
+	  opacity: 0.95;
+	}
+  
+	97% {
+	  opacity: 0.93;
+	}
+  
+	to {
+	  opacity: 1;
+	}
 }
