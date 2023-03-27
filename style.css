@@ -80,7 +80,7 @@ body {
 	position: absolute;
 	display: flex;
 	justify-content: center;
-	align-items: center;
+	align-items: top;
 	width: 50%;
 	height: 50%;
 	background-image: radial-gradient(
