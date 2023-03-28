@@ -89,22 +89,21 @@ body {
 .sign {
 	position: absolute;
 	display: flex;
-	justify-content: center;
+	justify-content: left;
 	align-items: top;
-	width: 50%;
 	height: 50%;
 	transform: translate(-50%, -50%);
 	letter-spacing: 2;
-	left: 50%;
+	left: 530%;
 	top: 50%;
 	font-family: "Intro";
 	text-transform: uppercase;
-	font-size: 4em;
+	font-size: 1.3em;
 	color: #ff0000;
 	text-shadow: 0 0 0.3rem #ff0000, 0 0 1.5rem rgb(172, 25, 25),
 	-0.2rem 0.1rem 1rem #ad0f0f, 0.2rem 0.1rem 1rem #991515,
 	0 -0.5rem 2rem #4d0b0b, 0 0.5rem 3rem #bb1616;
-	animation: shine 2s forwards, flicker 3s infinite;
+	animation: shine 2s forwards,logoanim 2s forwards, flicker 3s infinite;
   }
   
   @keyframes blink {
@@ -162,6 +161,37 @@ body {
   }
   .flicker22 {
 	animation: shine2 2s forwards, blink2 0s 1s infinite;
+  }
+
+  @keyframes logoanim{
+	0%{
+		position: absolute;
+		display: flex;
+		justify-content: center;
+		align-items: top;
+		width: 50%;
+		height: 50%;
+		transform: translate(-50%, -50%);
+		letter-spacing: 2;
+		left: 50%;
+		top: 50%;
+		font-family: "Intro";
+		text-transform: uppercase;
+		font-size: 4em;
+	}
+	100%{
+		position: absolute;
+		display: flex;
+		justify-content: left;
+		align-items: top;
+		height: 50%;
+		transform: translate(-50%, -50%);
+		letter-spacing: 2;
+		left: 86%;
+		top: 28%;
+		text-transform: uppercase;
+		font-size: 1.3em;
+	}
   }
   
   @keyframes shine {
@@ -466,4 +496,25 @@ transform: translate(-50%, -50%);
 	color: white;
 	left: 40%;
 	font-family: "Intro";
+}
+.text{
+	color: white;
+	left: 25%;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	justify-content: center;
+	font-family: "Intro";
+	-webkit-text-stroke: 1px black; /* ширина и цвет обводки */
+	text-size-adjust: 1px black; /* для браузеров, не использующих префикс -webkit- */
+	animation: alphatext 5s forwards;
+}
+@keyframes alphatext{
+	0%{
+		opacity: 0;
+	}
+	100%{
+		opacity: 1;
+	}
 }
